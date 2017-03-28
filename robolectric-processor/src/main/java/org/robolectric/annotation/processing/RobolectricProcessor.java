@@ -1,6 +1,7 @@
 package org.robolectric.annotation.processing;
 
 import org.robolectric.annotation.processing.generator.Generator;
+import org.robolectric.annotation.processing.generator.JavadocJsonGenerator;
 import org.robolectric.annotation.processing.generator.ServiceLoaderGenerator;
 import org.robolectric.annotation.processing.generator.ShadowProviderGenerator;
 import org.robolectric.annotation.processing.validator.ImplementationValidator;
@@ -76,6 +77,7 @@ public class RobolectricProcessor extends AbstractProcessor {
 
     generators.add(new ShadowProviderGenerator(model, environment, shadowPackage, shouldInstrumentPackages));
     generators.add(new ServiceLoaderGenerator(environment, shadowPackage));
+    generators.add(new JavadocJsonGenerator(model, environment));
   }
 
   @Override
